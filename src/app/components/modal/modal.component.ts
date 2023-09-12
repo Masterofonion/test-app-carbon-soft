@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { INote } from 'src/app/model/note.interface';
 
 @Component({
@@ -16,13 +16,19 @@ export class ModalComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.noteForm = this.fb.group({ title: this.title, content: this.content });
+    this.noteForm = this.fb.group({
+      title: [this.title, [Validators.required]],
+      content: [this.content, [Validators.required]],
+    });
   }
   handleClick(event: Event) {
-    if (!(event.target as HTMLElement).closest('.modal')) {
+    if (
+      !(event.target as HTMLElement).closest('.modal') ||
+      (event.target as HTMLElement).id === 'cancel'
+    ) {
       this.closeEvent.next();
     }
-    if ((event.target as HTMLElement).id === 'submit') {
+    if ((event.target as HTMLElement).id === 'submit' && this.noteForm.valid) {
       this.submitEvent.next(this.noteForm.value);
     }
   }

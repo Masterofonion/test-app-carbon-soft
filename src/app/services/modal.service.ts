@@ -18,8 +18,8 @@ export class ModalService {
   constructor(private resolver: ComponentFactoryResolver) {}
   openModal(
     container: ViewContainerRef,
-    title: string = 'xxx',
-    content: string = 'xxx'
+    title: string = '',
+    content: string = ''
   ) {
     let factory = this.resolver.resolveComponentFactory(ModalComponent);
     this.componentRef = container.createComponent(factory);
