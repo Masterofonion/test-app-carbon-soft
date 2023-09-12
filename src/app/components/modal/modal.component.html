@@ -1,0 +1,25 @@
+<div (click)="handleClick($event)" class="modal-container">
+  <form [formGroup]="noteForm" class="modal">
+    <label for="title">Заголовок</label>
+    <input
+      class="input"
+      type="text"
+      name="title"
+      id="title"
+      [formControlName]="'title'"
+    />
+    <label for="content">Содержание</label>
+    <textarea
+      class="input"
+      name="content"
+      id="content"
+      cols="30"
+      rows="10"
+      [formControlName]="'content'"
+    ></textarea>
+    <div class="actions">
+      <button type="button" id="submit" class="btn modal-btn">Принять</button
+      ><button type="button" class="btn modal-btn">Отмена</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,32 @@
+.menu {
+  width: 300px;
+  &__item {
+    display: block;
+    background-color: #e9edc9;
+    padding: 15px 20px;
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:hover {
+      background-color: #ccd5ae;
+    }
+    &:active {
+      color: #000;
+    }
+  }
+  .add-btn {
+    width: 100%;
+    background-color: #fefae0;
+    &:hover {
+      background-color: #faedcd;
+    }
+  }
+}
+.active-item {
+  .menu__item {
+    background-color: #868c72;
+    color: #fefae0;
+  }
+}

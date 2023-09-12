@@ -1,0 +1,4 @@
+<section *ngIf="note$ | async; let note">
+  <h2>{{ note.title }}</h2>
+  <div>{{ note.content }}</div>
+</section>

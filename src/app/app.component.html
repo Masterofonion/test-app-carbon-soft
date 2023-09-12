@@ -1,0 +1,12 @@
+<div #modalContainer>
+  <app-header></app-header>
+  <main>
+    <app-aside-menu
+      [notes]="notes$ | async"
+      [openedNote]="openedNote$ | async"
+      (addNote)="addNote()"
+    ></app-aside-menu>
+
+    <router-outlet></router-outlet>
+  </main>
+</div>

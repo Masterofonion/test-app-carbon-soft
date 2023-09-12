@@ -1,0 +1,17 @@
+<nav class="menu">
+  <ul class="menu__inner">
+    <li
+      *ngFor="let note of notes"
+      class="menu__item__wrapper"
+      [class.active-item]="openedNote && note.id === openedNote.id"
+    >
+      <span></span>
+      <a class="menu__item" [routerLink]="'/' + note.id" [title]="note.title">
+        {{ note.title }}
+      </a>
+    </li>
+  </ul>
+  <button class="menu__item btn add-btn" (click)="addNote.emit()">
+    Добавить заметку
+  </button>
+</nav>
